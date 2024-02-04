@@ -31,7 +31,10 @@ function isAnagram(word1, word2) {
   if (word1.length !== word2.length) {
     return false;
   }
-  sortedWord1 = word1.split("").sort().join("");
-  sortedWord2 = word2.split("").sort().join("");
-  return sortedWord1 === sortedWord2;
+  for (let i = 0; i < word1.length; i++) {
+    if (!word1.includes(word2[i]) || !word2.includes(word1[i])) {
+      return false;
+    }
+  }
+  return true;
 }
